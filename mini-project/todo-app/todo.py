@@ -14,6 +14,20 @@ def show_tasks():
         print(f"{i}. {task}")
 
 
+def delete_task(number):
+    if number < 1 or number > len(tasks):
+        print("Invalid task number.")
+        return
+    removed = tasks.pop(number - 1)
+    print(f"Deleted: {removed}")
+
+
 add_task("Learn Git")
 add_task("Practice Python")
+add_task("Write test cases")
 show_tasks()
+
+delete_task(2)
+show_tasks()
+
+delete_task(10)
