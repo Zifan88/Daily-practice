@@ -50,9 +50,7 @@ def mark_done(number):
     print(f"Marked as done: {tasks[number - 1]['title']}")
 
 
-load_tasks()
-print("Tasks loaded from file:")
-show_tasks()
-
-add_task("New task")
-show_tasks()
+if __name__ == "__main__":
+    load_tasks()
+    print("Tasks loaded from file:")
+    show_tasks()

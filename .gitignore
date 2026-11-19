@@ -1,1 +1,3 @@
 mini-project/todo-app/tasks.json
+__pycache__/
+.pytest_cache/
