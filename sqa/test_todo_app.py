@@ -51,3 +51,18 @@ def test_save_and_load_persistence():
     todo.tasks = []
     todo.load_tasks()
     assert todo.tasks == [{"title": "Saved task", "done": False}]
+
+
+
+
+def test_edit_task():
+    todo.add_task("Old title")
+    todo.edit_task(1, "New title")
+    assert todo.tasks[0]["title"] == "New title"
+
+
+def test_edit_task_empty_title(capsys):
+    todo.add_task("Keep me")
+    todo.edit_task(1, "   ")
+    assert todo.tasks[0]["title"] == "Keep me"
+    assert "Title cannot be empty." in capsys.readouterr().out

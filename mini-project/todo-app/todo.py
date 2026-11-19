@@ -50,6 +50,20 @@ def mark_done(number):
     print(f"Marked as done: {tasks[number - 1]['title']}")
 
 
+def edit_task(number, new_title):
+    if number < 1 or number > len(tasks):
+        print("Invalid task number.")
+        return
+    new_title = new_title.strip()
+    if not new_title:
+        print("Title cannot be empty.")
+        return
+    old_title = tasks[number - 1]["title"]
+    tasks[number - 1]["title"] = new_title
+    save_tasks()
+    print(f"Edited: '{old_title}' -> '{new_title}'")
+
+
 if __name__ == "__main__":
     load_tasks()
     print("Tasks loaded from file:")
